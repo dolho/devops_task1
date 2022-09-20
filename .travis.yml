@@ -1,0 +1,31 @@
+sudo: false
+language: c
+compiler: gcc
+if: tag IS blank
+script: ./etc/travis-ci.sh
+notifications:
+  irc:
+  - irc.freenode.org#rerun
+addons:
+  apt:
+    packages:
+    - markdown
+    - fakeroot
+    - build-essential
+    - devscripts
+    - autoconf
+    - automake
+    - dh-make
+    - libfile-fcntllock-perl
+    - rpm
+    - xmlstarlet
+    - jq
+    - wget
+    - zip
+    sources:
+    - sourceline: deb https://dl.bintray.com/rerun/rerun-deb /
+env:
+  global:
+  - BINTRAY_USER=ahonor
+  - secure: d+/B1oq6oNtDP2Ow4FJE2+JGfhN/r2e/M7RrQFlwPA6KVGkCFK5Gg4cXLjr2cGwuGhsjrT1fDkcv4VRZTOFhvT1i2GD8oUwnjmHI1Btj3obeSyCC2XiAHYRSvEAYDT/Snu/EeeqD84yxd3BMS4WpjLQxfiY6Xns5XC9HH3BXObI=
+  - secure: Lglf+hkCcJo7Xc6la7fT+tQRVBO47smS7eNLGm655urgLYgv4x8XRAZ3/67MFgDazRGvPaAtejIef5/YAwnGq+k9MTah42K5myjqoZOY/6oKaWkuHYdiEV3c52Luq01jj3Ho5nyfBjAMbTmlXnXAnyipM7zG7r9V1LY1QTjhmeQ=
