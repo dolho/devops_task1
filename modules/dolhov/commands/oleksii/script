@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+#/ command: dolhov:oleksii: "print env variables"
+#/ usage: rerun dolhov:oleksii [options]
+#/ rerun-variables: RERUN, RERUN_VERSION, RERUN_MODULES, RERUN_MODULE_DIR
+#/ option-variables: 
+
+. "$RERUN_MODULE_DIR/lib/functions.sh" "oleksii" || { 
+  echo >&2 "Failed loading function library." ; exit 1 ; 
+}
+
+set -o errexit -o nounset -o pipefail
+
+rerun_options_parse "$@"
+
+# Command implementation
+# ----------------------
+
+# - - -
+# Put the command implementation here.
+# - - -
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+
+while IFS='=' read -r -d '' n v; do
+    printf "${RED}'%s'${NC}=${GREEN}'%s'${NC}\n" "$n" "$v"
+done < <(env -0)
+
+
+# Done. Exit with last command exit status.
+exit $?
+
